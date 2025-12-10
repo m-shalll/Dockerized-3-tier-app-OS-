@@ -1,10 +1,10 @@
-FROM node:latest
-WORKDIR /app/Backend
+FROM node:18-alpine
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
 #first . current folder on my computer and second . is the current folder inside the container
 COPY . .  
-RUN mkdir /app/Backend/data
+RUN mkdir /app/data
 EXPOSE 3000
 ENV DB_HOST=localhost
 ENV DB_USER=root
